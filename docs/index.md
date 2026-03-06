@@ -1,10 +1,3 @@
-# Navigation Links
+# GitHub Spec Kit Workflow Demonstration
 
-## Specification Documents
-
-- [spec.md](specs/1-estimate-risk-agent/spec.md)
-- [plan.md](specs/1-estimate-risk-agent/plan.md)
-- [data-model.md](specs/1-estimate-risk-agent/data-model.md)
-- [quickstart.md](specs/1-estimate-risk-agent/quickstart.md)
-- [research.md](specs/1-estimate-risk-agent/research.md)
-- [tasks.md](specs/1-estimate-risk-agent/tasks.md)
+This is an example demonstrating the GitHub Spec Kit workflow for converting AI agent briefs into complete development packages. The workflow converts plain-language AI agent briefs into feature specifications, user stories, implementation plans, and task lists. This demonstration uses a Chief Estimator Risk Agent as the example.
