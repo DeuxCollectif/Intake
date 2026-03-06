@@ -1,13 +1,17 @@
-# Documentation Overview
+# GitHub Spec Kit Workflow
 
-This documentation provides comprehensive information on the project and its components. Below are the links to each section:
+Welcome to the GitHub Spec Kit Workflow landing page! This document provides an overview of the various sections of the Spec Kit, with links to the specific files you will need.
 
-- [Specification Document](./spec.md)
-- [Project Plan](./plan.md)
-- [Data Model](./data-model.md)
-- [Quickstart Guide](./quickstart.md)
-- [Research](./research.md)
-- [Tasks](./tasks.md)
-- [Example Output](./example-output.md)
+## Sections
 
-Please refer to the respective documents for more detailed information.
+- [Spec](docs/spec.md)
+- [Plan](docs/plan.md)
+- [Data Model](docs/data-model.md)
+- [Quickstart](docs/quickstart.md)
+- [Research](docs/research.md)
+- [Tasks](docs/tasks.md)
+- [Example Output](docs/example-output.md)
+
+## Example Risk Assessment Output
+
+In this section, you will find examples of risk assessment outputs. Please refer to the relevant documents linked above for more detailed information.
