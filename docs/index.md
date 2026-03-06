@@ -1,32 +1,26 @@
-# Welcome to the GitHub Spec Kit Workflow
+# GitHub Spec Kit Workflow
 
-The GitHub Spec Kit assists teams in understanding and implementing product specifications effectively. Below is a comprehensive explanation of its workflow, along with a demonstration example and PCL experience.
+## Introduction
+This document demonstrates the GitHub Spec Kit workflow which converts plain-language AI agent briefs into complete development packages, including feature specification, user stories, implementation plan, and task lists.
 
-## Workflow Explanation
+## Purpose of the Workflow
+The workflow is designed to give non-engineering leaders a repeatable, auditable path from AI concept to development-ready specification without the need for technical translation.
 
-1. **Initiation**: Each project begins with a clear specification, defining its objectives and deliverables.
-2. **Documentation**: Aspects of the project are documented within the GitHub repository, ensuring collaboration and transparency.
-3. **Implementation**: Teams work on the project, utilizing the specifications as a guide for development.
-4. **Review**: Regular reviews ensure adherence to specifications and facilitate iterative improvements.
-5. **Delivery**: Once finalized, the project is delivered as per the defined specifications.
+## Demonstration of the Workflow
+To demonstrate this workflow, a Chief Estimator Risk Agent brief was run through it, producing a full specification for an agent that queries SharePoint historical estimate data and generates executive-ready conceptual risk briefings. The output includes the agent file, prompt file, output contract, and validation rubric.
 
-## Demonstration Example
+## Context of Application
+This methodology has been utilized at PCL Construction to assess and govern 70 AI use cases, where structured intake and specification frameworks reduced the time from concept to delivery-ready agent from weeks to just days.
 
-To illustrate the workflow, let’s consider a project aiming to develop a new feature in an application. The specifications outline the feature's user stories, technical requirements, and testing procedures. The team follows these guidelines to implement the feature effectively.
+## Navigation
+For more details on this process, please refer to the following documentation files:
+- [spec.md](specs/1-estimate-risk-agent/spec.md)
+- [plan.md](specs/1-estimate-risk-agent/plan.md)
+- [data-model.md](specs/1-estimate-risk-agent/data-model.md)
+- [quickstart.md](specs/1-estimate-risk-agent/quickstart.md)
+- [research.md](specs/1-estimate-risk-agent/research.md)
+- [tasks.md](specs/1-estimate-risk-agent/tasks.md)
 
-## PCL Experience
+---
 
-PCL emphasizes the importance of clear specifications. It enhances cross-functional collaboration and improves the overall project outcome by helping all stakeholders stay aligned on goals.
-
-## Navigation Links
-
-- [Specification Document](spec.md)
-- [Project Plan](plan.md)
-- [Data Model](data-model.md)
-- [Quickstart Guide](quickstart.md)
-- [Research Materials](research.md)
-- [Task List](tasks.md)  
-
-Stay updated with the latest changes and access all necessary documents via the links above. 
-
-Thank you for using the GitHub Spec Kit!
+*Updated on 2026-03-06 07:37:37 UTC*
