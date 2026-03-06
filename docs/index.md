@@ -18,6 +18,14 @@ This methodology has been utilized at PCL Construction to assess and govern 70 A
 [**View Full Specification**](https://github.com/KevinDeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/spec.md)  
 Complete requirements, user stories, and acceptance criteria for the Risk Estimation Agent system.
 
+### Example Risk Assessment Output
+[**View Example Output**](https://github.com/KevinDeuxCollectif/Intake/blob/main/docs/example-output.md)  
+Live demonstration of a Chief Estimator Risk Assessment for a USD 285M Regional Acute Care Hospital Expansion project in Phoenix, Arizona. This example showcases the executive-ready output format, including 9 estimate risks with historical evidence, likelihood/impact ratings, and mitigation strategies. Illustrates how the Risk Agent translates conceptual project inputs and historical comparables into actionable risk guidance for leadership decision-making
+
+### Research & Findings
+[**View Research**](https://github.com/KevinDeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/research.md)  
+Background research, technology decisions, and design rationale.
+
 ### Implementation Plan
 [**View Implementation Plan**](https://github.com/KevinDeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/plan.md)  
 Technical architecture, phasing strategy, and development approach.
@@ -29,10 +37,6 @@ Entity definitions, relationships, and data structures powering the system.
 ### Quick Start Guide
 [**View Quick Start**](https://github.com/KevinDeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/quickstart.md)  
 How to get started with the Risk Estimation Agent.
-
-### Research & Findings
-[**View Research**](https://github.com/KevinDeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/research.md)  
-Background research, technology decisions, and design rationale.
 
 ### Implementation Tasks
 [**View Tasks**](https://github.com/KevinDeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/tasks.md)  
