@@ -10,7 +10,7 @@ The workflow is designed to give non-engineering leaders a repeatable, auditable
 To demonstrate this workflow, a Chief Estimator Risk Agent brief was run through it, producing a full specification for an agent that queries SharePoint historical estimate data and generates executive-ready conceptual risk briefings. The output includes the agent file, prompt file, output contract, and validation rubric.
 
 ## Context of Application
-This methodology has been utilized at PCL Construction to assess and govern 70 AI use cases, where structured intake and specification frameworks reduced the time from concept to delivery-ready agent from weeks to just days.
+This methodology reflects the approach applied in a large-scale enterprise AI program to assess and govern 70 AI use cases
 
 ## Project Documentation
 
