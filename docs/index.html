@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Spec Kit — AI Agent Briefs, Development-Ready</title>
+  <meta name="description" content="Converts plain-language AI agent briefs into complete development packages — feature specification, user stories, implementation plan, and task lists. No technical translation required." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f8f6;
+      --card-bg: #fff;
+      --border: #e0ddd6;
+      --text: #1a1a1a;
+      --secondary: #555;
+      --muted: #888;
+      --accent: #1a1a1a;
+      --radius: 10px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .container--wide {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+    section + section {
+      border-top: 1px solid var(--border);
+    }
+
+    /* Typography */
+    h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 12px; }
+    h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.3; margin-bottom: 8px; }
+    p { color: var(--secondary); line-height: 1.7; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--text);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      line-height: 1;
+    }
+    .btn:hover { opacity: 0.82; }
+    .btn--outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn--outline:hover { border-color: var(--text); opacity: 1; }
+
+    /* =====================
+       HERO
+    ===================== */
+    #hero {
+      padding: 100px 0 80px;
+      border-top: none;
+    }
+    #hero .site-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    #hero h1 {
+      margin-bottom: 20px;
+    }
+    #hero .tagline {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      margin-bottom: 12px;
+      max-width: 580px;
+    }
+    #hero .subheadline {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    /* =====================
+       WHAT IT DOES
+    ===================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    @media (max-width: 680px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+    .feature-card .card-icon {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    .feature-card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+    }
+
+    /* =====================
+       DEMO
+    ===================== */
+    #demonstration .demo-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    #demonstration .demo-pill {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    /* =====================
+       DOCUMENTATION CARDS
+    ===================== */
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    @media (max-width: 680px) {
+      .doc-grid { grid-template-columns: 1fr; }
+    }
+    .doc-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .doc-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .doc-card p {
+      font-size: 0.88rem;
+      flex-grow: 1;
+      margin-bottom: 16px;
+    }
+    .doc-card .doc-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .doc-card .doc-link:hover { opacity: 0.7; }
+
+    /* =====================
+       ABOUT
+    ===================== */
+    #about p {
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+    #about p:last-child { margin-bottom: 0; }
+
+    /* =====================
+       FOOTER
+    ===================== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    /* =====================
+       UTILITIES
+    ===================== */
+    .text-muted { color: var(--muted); }
+    .mt-4 { margin-top: 4px; }
+    .mt-8 { margin-top: 8px; }
+    .mt-16 { margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <p class="site-name">GitHub Spec Kit</p>
+      <h1>AI agent briefs,<br>development-ready.</h1>
+      <p class="tagline">Converts plain-language AI agent briefs into complete development packages.</p>
+      <p class="subheadline">A repeatable, auditable path from AI concept to development-ready specification. No technical translation required.</p>
+      <a href="#documentation" class="btn">View the Specification ↓</a>
+    </div>
+  </section>
+
+  <!-- WHAT IT DOES -->
+  <section id="what-it-does">
+    <div class="container--wide">
+      <div class="container">
+        <p class="section-label">What It Does</p>
+        <h2>From brief to build-ready</h2>
+      </div>
+      <div class="cards-grid" style="max-width:960px; margin: 32px auto 0; padding: 0 24px;">
+        <div class="card feature-card">
+          <div class="card-icon">📋</div>
+          <h3>Specify</h3>
+          <p>Define requirements with user stories, acceptance criteria, and functional requirements — structured for engineering handoff.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="card-icon">📐</div>
+          <h3>Plan</h3>
+          <p>Generate implementation plans with technical architecture and phasing strategy — giving teams a clear roadmap before a single line is written.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="card-icon">✅</div>
+          <h3>Tasks</h3>
+          <p>Break specifications into actionable work items with acceptance criteria — so every task has a clear definition of done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMONSTRATION -->
+  <section id="demonstration">
+    <div class="container">
+      <p class="section-label">Demonstration</p>
+      <h2>Chief Estimator Risk Agent</h2>
+      <div class="demo-meta">
+        <span class="demo-pill">USD 285M Project</span>
+        <span class="demo-pill">Regional Acute Care Hospital</span>
+        <span class="demo-pill">Phoenix, Arizona</span>
+      </div>
+      <p>To demonstrate this workflow, a Chief Estimator Risk Agent brief was run through the full GitHub Spec Kit process. The result is a complete specification for an agent that queries SharePoint historical estimate data and generates executive-ready conceptual risk briefings.</p>
+      <p style="margin-top: 12px;">The output package includes the agent file, prompt file, output contract, and validation rubric — along with a live example risk assessment for a USD 285M Regional Acute Care Hospital Expansion project in Phoenix, Arizona. The assessment surfaces 9 estimate risks with historical evidence, likelihood and impact ratings, and mitigation strategies.</p>
+    </div>
+  </section>
+
+  <!-- PROJECT DOCUMENTATION -->
+  <section id="documentation">
+    <div class="container--wide">
+      <div class="container">
+        <p class="section-label">Project Documentation</p>
+        <h2>Everything the team needs</h2>
+        <p>The complete specification package — from requirements through implementation tasks.</p>
+      </div>
+      <div class="doc-grid" style="max-width:960px; margin: 32px auto 0; padding: 0 24px;">
+
+        <div class="card doc-card">
+          <div>
+            <h3>Core Specification</h3>
+            <p>Complete requirements, user stories, and acceptance criteria for the Risk Estimation Agent system.</p>
+          </div>
+          <a href="https://github.com/DeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/spec.md" class="doc-link" target="_blank" rel="noopener">View Specification →</a>
+        </div>
+
+        <div class="card doc-card">
+          <div>
+            <h3>Example Risk Assessment</h3>
+            <p>Live demonstration for a USD 285M Regional Acute Care Hospital Expansion — executive-ready output with 9 risks, evidence, and mitigations.</p>
+          </div>
+          <a href="https://github.com/DeuxCollectif/Intake/blob/main/docs/example-output.md" class="doc-link" target="_blank" rel="noopener">View Example Output →</a>
+        </div>
+
+        <div class="card doc-card">
+          <div>
+            <h3>Research &amp; Findings</h3>
+            <p>Background research, technology decisions, and design rationale behind the Risk Estimation Agent.</p>
+          </div>
+          <a href="https://github.com/DeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/research.md" class="doc-link" target="_blank" rel="noopener">View Research →</a>
+        </div>
+
+        <div class="card doc-card">
+          <div>
+            <h3>Implementation Plan</h3>
+            <p>Technical architecture, phasing strategy, and development approach for building the agent.</p>
+          </div>
+          <a href="https://github.com/DeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/plan.md" class="doc-link" target="_blank" rel="noopener">View Plan →</a>
+        </div>
+
+        <div class="card doc-card">
+          <div>
+            <h3>Data Model</h3>
+            <p>Entity definitions, relationships, and data structures powering the Risk Estimation Agent system.</p>
+          </div>
+          <a href="https://github.com/DeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/data-model.md" class="doc-link" target="_blank" rel="noopener">View Data Model →</a>
+        </div>
+
+        <div class="card doc-card">
+          <div>
+            <h3>Quick Start Guide</h3>
+            <p>How to get started with the Risk Estimation Agent — step-by-step setup instructions.</p>
+          </div>
+          <a href="https://github.com/DeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/quickstart.md" class="doc-link" target="_blank" rel="noopener">View Quick Start →</a>
+        </div>
+
+        <div class="card doc-card">
+          <div>
+            <h3>Implementation Tasks</h3>
+            <p>Detailed breakdown of all work items and deliverables with acceptance criteria for each task.</p>
+          </div>
+          <a href="https://github.com/DeuxCollectif/Intake/blob/main/specs/1-estimate-risk-agent/tasks.md" class="doc-link" target="_blank" rel="noopener">View Tasks →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">About</p>
+      <h2>Enterprise AI Governance</h2>
+      <p>This methodology reflects the approach applied in a large-scale enterprise AI program to assess and govern 70 AI use cases. It gives non-engineering leaders a repeatable, auditable path from AI concept to development-ready specification — without requiring technical translation at every step.</p>
+      <p>GitHub Spec Kit is free and open source. Fork it, adapt it, and use it to bring structure to your own AI development programs.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>Built by Kevin Zentner. GitHub Spec Kit is free and open source.</p>
+      <div class="footer-links">
+        <a href="https://github.com/DeuxCollectif/Intake" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/kevinzentner/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://deuxcollectif.com" target="_blank" rel="noopener">deuxcollectif.com</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
